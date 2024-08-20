@@ -15,6 +15,7 @@ public class Student
     [Timestamp]
     public uint Version { get; set; }
 }
+
 public class OkulDB : DbContext
 {
     public OkulDB(DbContextOptions<OkulDB> dbContext) : base(dbContext) { }
