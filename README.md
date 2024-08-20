@@ -1,10 +1,11 @@
-Pessimistic Lock (Kötümser Kilitleme)
+**Pessimistic Lock (Kötümser Kilitleme)**
 --------------------------------------
 "SELECT * FROM Personeller WITH (XLOCK)";
 
-Optimistic Lock (İyimser Kilitmele)
+**Optimistic Lock (İyimser Kilitmele)**
 --------------------------------------
 
+```
 public class Student
 {
     [Key]
@@ -15,7 +16,9 @@ public class Student
     [Timestamp]
     public uint Version { get; set; }
 }
+```
 
+```
 public class OkulDB : DbContext
 {
     public OkulDB(DbContextOptions<OkulDB> dbContext) : base(dbContext) { }
@@ -27,3 +30,4 @@ public class OkulDB : DbContext
         modelBuilder.Entity<Ogrenci>().Property(_ => _.RowVersion).IsRowVersion();
     }
 }
+```
